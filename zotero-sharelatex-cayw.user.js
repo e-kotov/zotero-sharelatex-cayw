@@ -103,12 +103,20 @@ function getDocumentText() {
 }
 
 function makeInsert(text) {
-  const event = new ClipboardEvent('paste', {
-    dataType: 'text/plain',
-  	data: text
-  });
-  const element = document.activeElement;
-  element.dispatchEvent(event);
+  if (navigator.userAgent.includes("Firefox")) {
+    const event = new ClipboardEvent('paste', {
+      dataType: 'text/plain',
+      data: text
+    });
+    const element = document.activeElement;
+    element.dispatchEvent(event);
+  } else {
+    var trans = new DataTransfer();
+    trans.setData('text/plain', text)
+    const event = new ClipboardEvent('paste', { clipboardData: trans });
+    const element = document.activeElement;
+    element.dispatchEvent(event);
+  };
 }
 
 
