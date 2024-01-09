@@ -103,10 +103,9 @@ function getDocumentText() {
 }
 
 function makeInsert(text) {
-  const event = new ClipboardEvent('paste', {
-    dataType: 'text/plain',
-  	data: text
-  });
+  var trans = new DataTransfer();
+  trans.setData('text/plain', text)
+  const event = new ClipboardEvent('paste', { clipboardData: trans });
   const element = document.activeElement;
   element.dispatchEvent(event);
 }
