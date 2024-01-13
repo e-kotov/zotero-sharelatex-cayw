@@ -1,13 +1,16 @@
 // ==UserScript==
 // @version         0.10
-// @name            Zotero ShareLaTeX Cite-as-you-Write
+// @name            Zotero ShareLaTeX Cite-as-you-Write Overleaf
 // @namespace       https://github.com/dlukes
 // @author          dlukes
 // @description     Insert citations from Zotero into ShareLaTeX as you write.
 // @match           *://www.overleaf.com/*
+// @match           *://sharelatex.gwdg.de/*
 // @run-at          document-end
 // @grant           unsafeWindow
 // @grant           GM.xmlHttpRequest
+// @downloadURL     https://github.com/e-kotov/zotero-sharelatex-cayw/raw/master/zotero-sharelatex-cayw.user.js
+// @updateURL       https://github.com/e-kotov/zotero-sharelatex-cayw/raw/master/zotero-sharelatex-cayw.user.js
 // ==/UserScript==
 "use strict";
 
@@ -157,9 +160,9 @@ function zoteroCite() {
 
 window.onkeyup = (ev) => {
   // TODO: you can customize the keyboard shortcuts here
-  if (ev.ctrlKey && ev.shiftKey && ev.keyCode === 190) {
+  if (ev.ctrlKey && ev.shiftKey && ev.keyCode === 188) {
     zoteroInsertBibliography();
-  } else if (ev.ctrlKey && ev.keyCode === 190) {
+  } else if (ev.ctrlKey && ev.keyCode === 188) {
     zoteroCite();
   }
 };
