@@ -1,6 +1,6 @@
 // ==UserScript==
 // @version         0.10
-// @name            Zotero ShareLaTeX Cite-as-you-Write Overleaf
+// @name            Zotero ShareLaTeX Cite-as-you-Write
 // @namespace       https://github.com/dlukes
 // @author          dlukes
 // @description     Insert citations from Zotero into ShareLaTeX as you write.
