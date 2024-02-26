@@ -99,7 +99,10 @@ function zotWarnAndAsk() {
 }
 
 function getDocumentText() {
-  return unsafeWindow._ide.$scope.editor.sharejs_doc.doc._doc.getText()
+  // return unsafeWindow._ide.$scope.editor.sharejs_doc.doc._doc.getText()
+  var editor = unsafeWindow.overleaf.unstable.store.items.get("editor");
+  editor = editor.value
+  return editor.sharejs_doc.doc._doc.getText()
 }
 
 function makeInsert(text) {
