@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version         0.10
+// @version         0.10.1
 // @name            Zotero ShareLaTeX Cite-as-you-Write
 // @namespace       https://github.com/dlukes
 // @author          dlukes
