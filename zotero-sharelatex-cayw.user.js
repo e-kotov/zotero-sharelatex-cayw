@@ -102,15 +102,27 @@ function zotWarnAndAsk() {
 }
 
 function getDocumentText() {
-  return unsafeWindow._ide.$scope.editor.sharejs_doc.doc._doc.getText()
+  // return unsafeWindow._ide.$scope.editor.sharejs_doc.doc._doc.getText()
+  var editor = unsafeWindow.overleaf.unstable.store.items.get("editor");
+  editor = editor.value
+  return editor.sharejs_doc.doc._doc.getText()
 }
 
 function makeInsert(text) {
-  var trans = new DataTransfer();
-  trans.setData('text/plain', text)
-  const event = new ClipboardEvent('paste', { clipboardData: trans });
-  const element = document.activeElement;
-  element.dispatchEvent(event);
+  if (navigator.userAgent.includes("Firefox")) {
+    const event = new ClipboardEvent('paste', {
+      dataType: 'text/plain',
+      data: text
+    });
+    const element = document.activeElement;
+    element.dispatchEvent(event);
+  } else {
+    var trans = new DataTransfer();
+    trans.setData('text/plain', text)
+    const event = new ClipboardEvent('paste', { clipboardData: trans });
+    const element = document.activeElement;
+    element.dispatchEvent(event);
+  };
 }
 
 
