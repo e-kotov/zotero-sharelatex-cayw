@@ -1,5 +1,5 @@
 // ==UserScript==
-// @version         0.10.1
+// @version         0.10.2
 // @name            Zotero ShareLaTeX Cite-as-you-Write
 // @namespace       https://github.com/dlukes
 // @author          dlukes
@@ -102,10 +102,17 @@ function zotWarnAndAsk() {
 }
 
 function getDocumentText() {
-  // return unsafeWindow._ide.$scope.editor.sharejs_doc.doc._doc.getText()
-  var editor = unsafeWindow.overleaf.unstable.store.items.get("editor");
-  editor = editor.value
-  return editor.sharejs_doc.doc._doc.getText()
+  let text = "";
+  const sharejs_doc = unsafeWindow._ide?. $scope?.editor?.sharejs_doc?.doc?._doc;
+  const overleaf_doc = unsafeWindow.overleaf?.unstable?.store?.items?.get("editor")?.value?.sharejs_doc?.doc?._doc;
+
+  if (sharejs_doc) {
+    text = sharejs_doc.getText();
+  } else if (overleaf_doc) {
+    text = overleaf_doc.getText();
+  }
+
+  return text;
 }
 
 function makeInsert(text) {
