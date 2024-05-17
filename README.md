@@ -28,9 +28,9 @@ Usage
 The userscript provides two additional keyboard shortcuts when using
 ShareLaTeX, which are by default:
 
-- `Ctrl+.` -- calls up the Zotero popup, allows you to put together a
+- `Ctrl+,` -- calls up the Zotero popup, allows you to put together a
   citation, and inserts it into the document
-- `Ctrl+Shift+.` -- inserts a Zotero collection exported as a Bib(La)TeX
+- `Ctrl+Shift+,` -- inserts a Zotero collection exported as a Bib(La)TeX
   bibliography database into the document. This is intended as an easy
   way to update your ShareLaTeX .bib file after you've made edits to the
   bibliography in Zotero.
